@@ -83,7 +83,12 @@ public class PlayerMovement : MonoBehaviour
         ApplyVisuals();
     }
 
-
+    /// <summary>
+    /// Déplace le joueur vers une position 
+    /// </summary>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="dir"></param>
     private void MovePlayer(int posX, int posY, Entity.Direction dir)
     {
         if (ValidPositionY(posY) && ValidPositionX(posX))
@@ -107,9 +112,9 @@ public class PlayerMovement : MonoBehaviour
         vm.AddWings();
     }
 
-    private void ApplyVisuals()
+    public void ApplyVisuals()
     {
-        Debug.Log(playerPosX + " | " + playerPosY);
+
         vm.UpdatePlayer(playerPosX, playerPosY, (int)player.dir);
     }
 

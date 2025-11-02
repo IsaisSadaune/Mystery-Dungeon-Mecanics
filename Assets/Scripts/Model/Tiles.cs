@@ -45,6 +45,8 @@ public class Tiles : MonoBehaviour
     {
         ItemsMap[x, y] = null;
     }
+
+    public TilesTypes GetTT(int x, int y) => Map[x, y];
 }
 
 

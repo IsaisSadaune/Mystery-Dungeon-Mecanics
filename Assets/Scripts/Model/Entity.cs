@@ -13,6 +13,11 @@ public class Entity : MonoBehaviour
     public void MoveEntity(int x, int y) => Pos = (x, y);
     public void TurnEntity(Direction d) => dir = d;
 
+    /// <summary>
+    /// Renvoie la position devant celle du joueur
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="System.Exception"></exception>
     public (int, int) GetInFront()
     {
         return dir switch
