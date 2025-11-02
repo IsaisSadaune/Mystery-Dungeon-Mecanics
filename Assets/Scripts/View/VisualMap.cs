@@ -25,18 +25,19 @@ public class VisualMap : MonoBehaviour
         {
             for (int j = 0; j < m.GetLength(1); j++)
             {
-                Instantiate(TilePrefab(m[i, j]), new Vector3(j, 0, i), Quaternion.identity);
+                Instantiate(TilePrefab(m[i, j]), new Vector3(j, 0, -i), Quaternion.identity);
             }
         }
     }
     public void CreateItemMap(Items[,] m)
     {
-        for(int i = 0;i<m.GetLength(0); i++)
+        for(int i = 0 ; i<m.GetLength(0) ; i++)
         {
             for (int j = 0; j < m.GetLength(1); j++)
             {
-                if (m[i,j] != null) { 
-                    dict[(i,j)] = Instantiate(m[i,j].model, new Vector3(j, 1, i), Quaternion.identity);
+                if (m[i,j] != null) 
+                { 
+                    dict[(i,j)] = Instantiate(m[i,j].model, new Vector3(j, 1, -i), Quaternion.identity);
                     Debug.Log("spawn");
                 }
             }
@@ -51,17 +52,17 @@ public class VisualMap : MonoBehaviour
 
     public void SetPlayer(int x, int y)
     {
-        player = Instantiate(prefabPlayer, new Vector3(x, 1, y), Quaternion.identity);
+        player = Instantiate(prefabPlayer, new Vector3(x, 1, -y), Quaternion.identity);
     }
 
     public void SetEnemy(int x, int y)
     {
-        enemy = Instantiate(prefabEnemy, new Vector3(x, 1, y), Quaternion.identity);
+        enemy = Instantiate(prefabEnemy, new Vector3(x, 1, -y), Quaternion.identity);
     }
 
     public void UpdatePlayer(int x, int y, int direction)
     { 
-        player.transform.position = new Vector3(x, 1, y);
+        player.transform.position = new Vector3(y, 1, -x);
         player.transform.rotation = Quaternion.Euler(new Vector3(0, direction, 0));
     }
 

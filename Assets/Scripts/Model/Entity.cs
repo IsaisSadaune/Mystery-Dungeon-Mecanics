@@ -17,10 +17,10 @@ public class Entity : MonoBehaviour
     {
         return dir switch
         {
-            Direction.North => (Pos.Item1, Pos.Item2 - 1),
-            Direction.South => (Pos.Item1, Pos.Item2 + 1),
-            Direction.East => (Pos.Item1 - 1, Pos.Item2),
-            Direction.West => (Pos.Item1 + 1, Pos.Item2 - 1),
+            Direction.North => (Pos.Item1 - 1, Pos.Item2),
+            Direction.South => (Pos.Item1 + 1, Pos.Item2),
+            Direction.East => (Pos.Item1 , Pos.Item2 + 1),
+            Direction.West => (Pos.Item1 , Pos.Item2 - 1),
             _ => throw new System.Exception("Erreur direction invalide"),
         };
     }
@@ -28,9 +28,9 @@ public class Entity : MonoBehaviour
 
     public enum Direction
     {
-        North = 180,
-        South = 0,
-        West = 90,
-        East = 270
+        North = 0,
+        South = 180,
+        West = 270,
+        East = 90
     }
 }

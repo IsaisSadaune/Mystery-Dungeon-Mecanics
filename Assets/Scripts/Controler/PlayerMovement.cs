@@ -29,32 +29,32 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    [ContextMenu("GoDown")]
+    public void MoveDown()
+    {
+        int posToCheck = playerPosX + 1;
+        MovePlayer(posToCheck, playerPosY, Entity.Direction.South);
+    }
+
+    [ContextMenu("GoUp")]
+    public void MoveUp()
+    {
+        int posToCheck = playerPosX - 1;
+        MovePlayer(posToCheck, playerPosY, Entity.Direction.North);
+    }
     [ContextMenu("GoRight")]
     public void MoveRight()
     {
-        int posToCheck = playerPosX + 1;
-        MovePlayer(posToCheck, playerPosY, Entity.Direction.West);
+        int posToCheck = playerPosY + 1;
+        MovePlayer(playerPosX, posToCheck, Entity.Direction.East);
     }
+
 
     [ContextMenu("GoLeft")]
     public void MoveLeft()
     {
-        int posToCheck = playerPosX - 1;
-        MovePlayer(posToCheck, playerPosY, Entity.Direction.East);
-    }
-    [ContextMenu("GoUp")]
-    public void MoveUp()
-    {
-        int posToCheck = playerPosY + 1;
-        MovePlayer(playerPosX, posToCheck, Entity.Direction.South);
-    }
-
-
-    [ContextMenu("GoDown")]
-    public void MoveDown()
-    {
         int posToCheck = playerPosY - 1;
-        MovePlayer(playerPosX, posToCheck, Entity.Direction.North);
+        MovePlayer(playerPosX, posToCheck, Entity.Direction.West);
     }
 
     [ContextMenu("Attack")]
@@ -72,25 +72,25 @@ public class PlayerMovement : MonoBehaviour
     [ContextMenu("TurnLeft")]
     public void TurnLeft()
     {
-        player.TurnEntity(Entity.Direction.East);
+        player.TurnEntity(Entity.Direction.West);
         ApplyVisuals();
     }
     [ContextMenu("TurnRight")]
     public void TurnRight()
     {
-        player.TurnEntity(Entity.Direction.West);
+        player.TurnEntity(Entity.Direction.East);
         ApplyVisuals();
     }
     [ContextMenu("TurnUp")]
     public void TurnUp()
     {
-        player.TurnEntity(Entity.Direction.South);
+        player.TurnEntity(Entity.Direction.North);
         ApplyVisuals();
     }
     [ContextMenu("TurnDown")]
     public void TurnDown()
     {
-        player.TurnEntity(Entity.Direction.North);
+        player.TurnEntity(Entity.Direction.South);
         ApplyVisuals();
     }
 
