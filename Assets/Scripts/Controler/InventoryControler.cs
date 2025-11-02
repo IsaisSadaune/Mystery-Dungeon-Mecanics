@@ -12,7 +12,7 @@ public class InventoryControler : MonoBehaviour
     private VisualMap vm => c.vm;
 
     //Ramasser Item en dessous de lui
-    public void GrabItemBelow()
+    public void PickupItemBelow()
     {
         Items i = ItemBelowPlayer();
         if (i != null)
@@ -20,6 +20,7 @@ public class InventoryControler : MonoBehaviour
             player.AddItem(i);
             vm.DeleteItem(posPlayerX, posPlayerY);
             i.OnPickup();
+            Debug.Log("grab");
         }
     }
 
@@ -30,6 +31,17 @@ public class InventoryControler : MonoBehaviour
         {
             vm.DeleteItem(posPlayerX, posPlayerY);
             i.OnEat();
+            Debug.Log("eat");
+        }
+    }
+    public void ThrowItemBelow()
+    {
+        Items i = ItemBelowPlayer();
+        if (i != null)
+        {
+            vm.DeleteItem(posPlayerX, posPlayerY);
+            i.OnThrow();
+            Debug.Log("throw");
         }
     }
 

@@ -16,17 +16,6 @@ public class PlayerMovement : MonoBehaviour
     //VIEW
     private VisualMap vm => c.vm;
 
-    private void Awake()
-    {
-        player.MoveEntity(2, 2);
-        enemy.MoveEntity(1, 1);
-        model.tileMap.AddItemAt(model.tileMap.oranBerry, 3,3);
-
-        vm.CreateMap(map);
-        vm.CreateItemMap(model.tileMap.ItemsMap);
-        vm.SetPlayer(playerPosX, playerPosY);
-        vm.SetEnemy(enemy.Pos.Item1, enemy.Pos.Item2);
-    }
 
 
     [ContextMenu("GoDown")]
@@ -105,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             }
             model.player.TurnEntity(dir);
         }
-        c.ic.GrabItemBelow();
+        //c.ic.GrabItemBelow();
         ApplyVisuals();
         Debug.Log("FIN DE TOUR");
         
