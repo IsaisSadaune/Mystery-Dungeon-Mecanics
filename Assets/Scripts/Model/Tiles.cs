@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Tiles : MonoBehaviour
 {
-    [field:SerializeField] public OranBerry oranBerry { get; private set; }
     //Sol, zone du bas
     public TilesTypes[,] Map { get; private set; } = 
         { 

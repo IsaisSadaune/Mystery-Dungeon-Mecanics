@@ -2,8 +2,18 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    //MODEL
+    public int HPs { get; private set; }
+    public void AddHPs(int hps)
+    { 
+        HPs+=hps;
+    }
+    public void RemoveHPs(int hps)
+    { 
+        HPs-=hps;
+        HPs = Mathf.Clamp(HPs, 0, HPs);
+    }
 
+    //MODEL
     public (int, int) Pos { get; private set; }
     public Direction dir { get; private set; } = Direction.North;
 

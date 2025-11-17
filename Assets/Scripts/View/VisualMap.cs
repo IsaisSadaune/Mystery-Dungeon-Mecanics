@@ -46,7 +46,7 @@ public class VisualMap : MonoBehaviour
             {
                 if (m[i,j] != null) 
                 { 
-                    dict[(i,j)] = Instantiate(m[i,j].model, new Vector3(j, 1, -i), Quaternion.identity);
+                    dict[(i,j)] = Instantiate(m[i,j].gameObject, new Vector3(j, 1, -i), Quaternion.identity);
                     Debug.Log("spawn");
                 }
             }
@@ -72,7 +72,7 @@ public class VisualMap : MonoBehaviour
     /// <param name="j"></param>
     public void AddItem(GameObject g, int i, int j)
     {
-        dict[(i,j)] = Instantiate(g,new Vector3(j,1,-i),Quaternion.identity);
+        dict[(i,j)] = Instantiate(g, new Vector3(j,1,-i), Quaternion.identity);
     }
 
 

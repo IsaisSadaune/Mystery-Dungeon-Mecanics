@@ -2,29 +2,8 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    [field: SerializeField] public GameObject model { get; private set; }
-
-    //Au mangeage de l'objet
-    public virtual void OnEat()
-    {
-
-    }
-
-    //Au ramassage de l'objet apres lancement
-    public virtual void OnCatch()
-    {
-
-    }
-    //Au ramassage de l'objet
-    public virtual void OnPickup()
-    {
-
-    }
+    [field: SerializeField] public string ObjectName { get; private set; }
+    [field: SerializeField] public string ObjectDescription { get; private set; }
 
 
-    //Ce qu'il se passe quand on lance l'objet
-    public virtual void OnThrow()
-    {
-
-    }
 }

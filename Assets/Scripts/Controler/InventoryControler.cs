@@ -23,7 +23,7 @@ public class InventoryControler : MonoBehaviour
         {
             player.AddItem(i);
             RemoveItem(posPlayerX, posPlayerY);
-            i.OnPickup();
+            //i.OnPickup();
             Debug.Log("grab");
         }
     }
@@ -34,16 +34,15 @@ public class InventoryControler : MonoBehaviour
     public void EatItemBelow()
     {
         Items i = ItemBelowPlayer();
-        if (i != null)
+        if (i is IMangeable m)
         {
             RemoveItem(posPlayerX, posPlayerY);
-            i.OnEat();
-            Debug.Log("eat");
+            m.OnEat(player);
         }
     }
 
     /// <summary>
-    /// Lance l'objet sous le joueur
+    /// Lance l'objet situé sous le joueur
     /// </summary>
     public void ThrowItemBelow()
     {
@@ -53,7 +52,7 @@ public class InventoryControler : MonoBehaviour
         {
             RemoveItem(posPlayerX, posPlayerY);
             (int _x,int _y) = GetLastTilePosBeforeWall(posPlayerX, posPlayerY, player.dir);
-            i.OnThrow();
+            //i.OnThrow();
             //Debug.Log("throw "+ _x + ", "+_y );
             AddItem(i, _x, _y);
             c.pm.ApplyVisuals();
@@ -122,10 +121,10 @@ public class InventoryControler : MonoBehaviour
         vm.DeleteItem(posPlayerX, posPlayerY);
     }
 
-    private void AddItem(Items i, int x, int y)
+    public void AddItem(Items i, int x, int y)
     {
         tileMap.AddItemAt(i, x, y);
-        vm.AddItem(i.model, x, y);
+        vm.AddItem(i.gameObject, x, y);
     }
     private Items ItemBelowPlayer() => itemMap[posPlayerX, posPlayerY];
 
