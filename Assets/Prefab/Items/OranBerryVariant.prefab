@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1526250785373260462}
   - component: {fileID: 6697851939172685982}
   m_Layer: 0
-  m_Name: OranBerry
+  m_Name: OranBerryVariant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56acd45ed644ce40bf7421cf9fb1f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: Baie Oran
-  Description: MiamMiam Mangeage
-  spriteUI: {fileID: 21300000, guid: b18e2dd39e8ace84cade8370355f331d, type: 3}
+  ItemName: Baie Ceriz
+  Description: bworf
+  spriteUI: {fileID: 21300000, guid: 275f9ef12a7d16443badabc5324a2de4, type: 3}
 --- !u!1 &1532258651814875516
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd9e522cb50cdd94fa2c4179222740ff, type: 2}
+  - {fileID: 2100000, guid: a81f5c08e63031043bac57f744b55274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
