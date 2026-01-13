@@ -7,33 +7,42 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] private VisualMap visual;
     [SerializeField] private CameraFollower cam;
 
+    private Game_Manager gm => Game_Manager.Instance;
     [ContextMenu("Move Down")]
     public void OnDown()
     {
-        if (!inventory.InventoryActive)
+        if (!inventory.InventoryActive && gm.CanApplyMovement())
+        {
             map.MoveDown();
-        UpdateVisuals();
+            UpdateVisuals();
+        }
     }
     [ContextMenu("Move Up")]
     public void OnUp()
     {
-        if (!inventory.InventoryActive)
+        if (!inventory.InventoryActive && gm.CanApplyMovement())
+        {
             map.MoveUp();
-        UpdateVisuals();
+            UpdateVisuals();
+        }
     }
     [ContextMenu("Move Left")]
     public void OnLeft()
     {
-        if(!inventory.InventoryActive)
+        if (!inventory.InventoryActive && gm.CanApplyMovement())
+        {
             map.MoveLeft();
-        UpdateVisuals();
+            UpdateVisuals();
+        }
     }
     [ContextMenu("Move Right")]
     public void OnRight()
     {
-        if (!inventory.InventoryActive)
+        if (!inventory.InventoryActive && gm.CanApplyMovement())
+        {
             map.MoveRight();
-        UpdateVisuals();
+            UpdateVisuals();
+        }
     }
 
     public void OnStartButton()

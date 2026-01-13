@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class ModificatorsMap : MonoBehaviour
 {
     [SerializeField] private Player prefabPlayer;
+    [SerializeField] private Entity prefabEnemy;
     [SerializeField] private new_Map map;
     [SerializeField] private VisualMap visual;
 
@@ -17,6 +18,11 @@ public class ModificatorsMap : MonoBehaviour
         p.MoveEntity(5, 5);
         map.SetPlayer(p, 5, 5);
         visual.UpdatePlayer(p);
+        Game_Manager.Instance.SetPlayer(p);
+
+        Entity e = visual.SetEnemy(prefabEnemy);
+        e.MoveEntity(4, 4);
+
     }
 
     public void CreateMap(int x, int y)

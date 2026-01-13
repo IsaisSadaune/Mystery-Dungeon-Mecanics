@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class VisualMap : MonoBehaviour
 {
@@ -83,10 +84,12 @@ public class VisualMap : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
-    public void SetEnemy(int x, int y)
+    public Entity SetEnemy(Entity e)
     {
-        //enemy = Instantiate(prefabEnemy, new Vector3(x, 1, -y), Quaternion.identity);
+        Entity enemy = Instantiate(e, new Vector3(e.PosX, 1, e.PosY), Quaternion.identity, parentEntities);
+        return enemy;
     }
+
 
     /// <summary>
     /// Modifie le placement du joueur
@@ -97,9 +100,16 @@ public class VisualMap : MonoBehaviour
     public void UpdatePlayer(Player p)
     {
         //Debug.Log(p);
-        p.transform.position = new Vector3(p.PosX, 0.5f, p.PosY);
+        //p.transform.position = new Vector3(p.PosX, 0.5f, p.PosY);
+        MovePlayer(p);
         p.transform.rotation = Quaternion.Euler(new Vector3(0, GetDirection(p), 0));
         cm.UpdateFollower();
+    }
+
+    public void MovePlayer(Player p)
+    {
+        p.transform.DOMove(new Vector3(p.PosX, 0.5f, p.PosY), 0.5f)
+            .OnComplete( () => Game_Manager.Instance.EndMovement());
     }
 
 
