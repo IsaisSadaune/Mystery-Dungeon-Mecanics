@@ -15,6 +15,7 @@ public class PlayerInputs : MonoBehaviour
         {
             map.MoveDown();
             UpdateVisuals();
+            Game_Manager.Instance.EndTurn();
         }
     }
     [ContextMenu("Move Up")]
@@ -24,6 +25,7 @@ public class PlayerInputs : MonoBehaviour
         {
             map.MoveUp();
             UpdateVisuals();
+            Game_Manager.Instance.EndTurn();
         }
     }
     [ContextMenu("Move Left")]
@@ -33,6 +35,7 @@ public class PlayerInputs : MonoBehaviour
         {
             map.MoveLeft();
             UpdateVisuals();
+            Game_Manager.Instance.EndTurn();
         }
     }
     [ContextMenu("Move Right")]
@@ -42,6 +45,7 @@ public class PlayerInputs : MonoBehaviour
         {
             map.MoveRight();
             UpdateVisuals();
+            Game_Manager.Instance.EndTurn();
         }
     }
 

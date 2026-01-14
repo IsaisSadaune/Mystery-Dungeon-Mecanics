@@ -9,6 +9,9 @@ public class Game_Manager : MonoBehaviour
 
     public event Action OnEndTurn;
 
+    [SerializeField] private VisualMap vm;
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,7 +30,7 @@ public class Game_Manager : MonoBehaviour
     {
         if (!isPlayerMoving)
         {
-            isPlayerMoving = true;
+            //isPlayerMoving = true;
             return true;
         }
         return false;
@@ -42,4 +45,6 @@ public class Game_Manager : MonoBehaviour
         Debug.Log("Fin du tour");
         OnEndTurn?.Invoke();
     }
+
+    public void UpdateEntity(Entity e) => vm.UpdateEntity(e);
 }

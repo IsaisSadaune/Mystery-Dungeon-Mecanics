@@ -21,7 +21,9 @@ public class ModificatorsMap : MonoBehaviour
         Game_Manager.Instance.SetPlayer(p);
 
         Entity e = visual.SetEnemy(prefabEnemy);
-        e.MoveEntity(4, 4);
+        map.AddEntity(e, 1, 1);
+        e.MoveEntity(1, 1);
+        visual.UpdateEntity(e);
 
     }
 

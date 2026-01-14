@@ -11,6 +11,8 @@ public class new_Map : MonoBehaviour
 
     public Player p { get; private set; }
 
+    public Entity e { get; private set; }
+
     [SerializeField] private Items testItem;
     [SerializeField] private Items testItem2;
 
@@ -102,6 +104,8 @@ public class new_Map : MonoBehaviour
         };
         ;
     }
+
+    private bool EntityHere(int x, int y) => GetTile(x, y).entite != null;
     private bool ValidPositionX(int posToCheck) => posToCheck >= 0 && posToCheck < MapLengthX;
     private bool ValidPositionY(int posToCheck) => posToCheck >= 0 && posToCheck < MapLengthY;
 

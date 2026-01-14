@@ -1,6 +1,6 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class VisualMap : MonoBehaviour
 {
@@ -31,14 +31,14 @@ public class VisualMap : MonoBehaviour
     }
     private void SetTile(int x, int y, TilesTypes tt) => Instantiate(TilePrefab(tt), new Vector3(x, 0, y), Quaternion.identity, parentTiles);
     private GameObject SpawnItem(int x, int y, GameObject g) => Instantiate(g, new Vector3(x, 1, y), Quaternion.identity, parentItems);
-    
+
     private void SetItem(int x, int y, Items i)
     {
         if (i != null)
             dictItems[(x, y)] = SpawnItem(x, y, i.gameObject);
     }
-    
-    
+
+
     /// <summary>
     /// OBSOLETE !!!!!! UTILISER CREATEMAP  
     /// Crée une map par rapport au tableau de Tiles passé en parametre
@@ -100,26 +100,32 @@ public class VisualMap : MonoBehaviour
     public void UpdatePlayer(Player p)
     {
         //Debug.Log(p);
-        //p.transform.position = new Vector3(p.PosX, 0.5f, p.PosY);
-        MovePlayer(p);
+        p.transform.position = new Vector3(p.PosX, 0.5f, p.PosY);
+        //MovePlayer(p);
         p.transform.rotation = Quaternion.Euler(new Vector3(0, GetDirection(p), 0));
         cm.UpdateFollower();
     }
 
+    public void UpdateEntity(Entity e)
+    {
+        e.transform.position = new Vector3(e.PosX, 0.5f, e.PosY);
+    }
+
+
     public void MovePlayer(Player p)
     {
         p.transform.DOMove(new Vector3(p.PosX, 0.5f, p.PosY), 0.5f)
-            .OnComplete( () => Game_Manager.Instance.EndMovement());
+            .OnComplete(() => Game_Manager.Instance.EndMovement());
     }
 
 
     public void UpdateItem(Items i, int x, int y)
     {
-        if(i == null && dictItems.ContainsKey((x,y)))
+        if (i == null && dictItems.ContainsKey((x, y)))
         {
             DeleteItem(x, y);
         }
-        if(i != null && !dictItems.ContainsKey((x,y)))
+        if (i != null && !dictItems.ContainsKey((x, y)))
         {
             SetItem(x, y, i);
         }

@@ -42,19 +42,19 @@ public class Entity : MonoBehaviour
 
     public void MoveDown()
     {
-        MovePlayer(PosX, PosY - 1, Direction.South);
+        MoveEntity(PosX, PosY - 1, Direction.South);
     }
     public void MoveUp()
     {
-        MovePlayer(PosX, PosY + 1, Direction.North);
+        MoveEntity(PosX, PosY + 1, Direction.North);
     }
     public void MoveLeft()
     {
-        MovePlayer(PosX - 1, PosY, Direction.West);
+        MoveEntity(PosX - 1, PosY, Direction.West);
     }
     public void MoveRight()
     {
-        MovePlayer(PosX + 1, PosY, Direction.East);
+        MoveEntity(PosX + 1, PosY, Direction.East);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public class Entity : MonoBehaviour
     /// <param name="posX"></param>
     /// <param name="posY"></param>
     /// <param name="dir"></param>
-    public void MovePlayer(int posX, int posY, Direction dir = Direction.North)
+    public void MoveEntity(int posX, int posY, Direction dir = Direction.North)
     {
         MoveEntity(posX, posY);
         TurnEntity(dir);
@@ -74,5 +74,5 @@ public enum Direction
     North,
     South,
     West,
-    East
+    East,
 }
